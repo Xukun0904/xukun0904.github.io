@@ -32,7 +32,7 @@
 <meta property="og:image" content="http://xukun.fun/2020/07/17/Shiro%E4%BF%AE%E6%94%B9%E8%A7%92%E8%89%B2%E6%9D%83%E9%99%90%E6%B8%85%E9%99%A4%E7%BC%93%E5%AD%98%E9%97%AE%E9%A2%98/20200717135435.png">
 <meta property="og:image" content="http://xukun.fun/2020/07/17/Shiro%E4%BF%AE%E6%94%B9%E8%A7%92%E8%89%B2%E6%9D%83%E9%99%90%E6%B8%85%E9%99%A4%E7%BC%93%E5%AD%98%E9%97%AE%E9%A2%98/20200717140127.png">
 <meta property="article:published_time" content="2020-07-17T05:25:40.000Z">
-<meta property="article:modified_time" content="2020-07-17T06:33:22.506Z">
+<meta property="article:modified_time" content="2020-07-17T06:35:52.098Z">
 <meta property="article:author" content="蔚蓝海">
 <meta property="article:tag" content="MyBatis-Plus">
 <meta name="twitter:card" content="summary">
@@ -190,7 +190,7 @@
 <p>​    而更新角色权限后，调用Realm中的内置的clearCache方法清除权限缓存，只清除了当前用户的权限缓存。</p>
 <img src="/2020/07/17/Shiro%E4%BF%AE%E6%94%B9%E8%A7%92%E8%89%B2%E6%9D%83%E9%99%90%E6%B8%85%E9%99%A4%E7%BC%93%E5%AD%98%E9%97%AE%E9%A2%98/20200717135435.png" class="">
 
-<h1 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h1><p>​    需要清除该角色下所有用户的权限缓存，通过RedisSessionDAO获取所有用户信息，然后循环清除指定用户权限缓存。若需要清除指定用户权限缓存，可将SimplePrincipalCollection对象强转成用户对象，再根据传入用户主键集合判断是否需要清除权限缓存。</p>
+<h1 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h1><p>​    需要清除该角色下所有用户的权限缓存，通过RedisSessionDAO获取所有用户信息，然后循环清除用户权限缓存。若需要清除指定用户权限缓存，可将SimplePrincipalCollection对象强转成用户对象，再根据传入用户主键集合判断是否需要清除权限缓存。</p>
 <img src="/2020/07/17/Shiro%E4%BF%AE%E6%94%B9%E8%A7%92%E8%89%B2%E6%9D%83%E9%99%90%E6%B8%85%E9%99%A4%E7%BC%93%E5%AD%98%E9%97%AE%E9%A2%98/20200717140127.png" class="">
         </div>
 
@@ -199,7 +199,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2020-07-17T06:33:22.506Z" itemprop="dateUpdated">2020-07-17 14:33:22</time>
+    最后更新时间：<time datetime="2020-07-17T06:35:52.098Z" itemprop="dateUpdated">2020-07-17 14:35:52</time>
 </span><br>
 
 
