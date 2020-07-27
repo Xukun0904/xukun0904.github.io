@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>CentOS7下MariaDB、JDK及Redis安装与配置 | XuKun&#39;s Blog | 做最好的自己！</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="MariaDB,JDK,Redis">
+    <meta name="description" content="MariaDB安装与配置简介 MariaDB数据库管理系统是MySQL的一个分支，主要由开源社区在维护，采用GPL授权许可 MariaDB的目的是完全兼容MySQL，包括API和命令行，使之能轻松成为MySQL的代替品。开发这个分支的原因之一是：甲骨文公司收购了MySQL后，有将MySQL闭源的潜在风险，因此社区采用分支的方式来避开这个风险。  安装准备 查看系统版本  12[root@xukun">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CentOS7下MariaDB、JDK及Redis安装与配置">
+<meta property="og:url" content="http://xukun.fun/2020/07/27/CentOS7%E4%B8%8BMariaDB%E3%80%81JDK%E5%8F%8ARedis%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/index.html">
+<meta property="og:site_name" content="XuKun&#39;s Blog">
+<meta property="og:description" content="MariaDB安装与配置简介 MariaDB数据库管理系统是MySQL的一个分支，主要由开源社区在维护，采用GPL授权许可 MariaDB的目的是完全兼容MySQL，包括API和命令行，使之能轻松成为MySQL的代替品。开发这个分支的原因之一是：甲骨文公司收购了MySQL后，有将MySQL闭源的潜在风险，因此社区采用分支的方式来避开这个风险。  安装准备 查看系统版本  12[root@xukun">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-07-27T14:59:46.000Z">
+<meta property="article:modified_time" content="2020-07-27T15:36:39.366Z">
+<meta property="article:author" content="蔚蓝海">
+<meta property="article:tag" content="MariaDB">
+<meta property="article:tag" content="JDK">
+<meta property="article:tag" content="Redis">
+<meta name="twitter:card" content="summary">
+    
+        <link rel="alternate" type="application/atom+xml" title="XuKun&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avater.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">蔚蓝海</h5>
+          <a href="mailto:471031576@qq.com" title="471031576@qq.com" class="mail">471031576@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">CentOS7下MariaDB、JDK及Redis安装与配置</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">CentOS7下MariaDB、JDK及Redis安装与配置</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2020-07-27T14:59:46.000Z" itemprop="datePublished" class="page-time">
+  2020-07-27
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85/">工具安装</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#MariaDB安装与配置"><span class="post-toc-number">1.</span> <span class="post-toc-text">MariaDB安装与配置</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#简介"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">简介</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#安装准备"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">安装准备</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#开始安装"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">开始安装</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#配置"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">配置</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#首次配置"><span class="post-toc-number">1.4.1.</span> <span class="post-toc-text">首次配置</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#配置字符集为UTF-8"><span class="post-toc-number">1.4.2.</span> <span class="post-toc-text">配置字符集为UTF-8</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#JDK1-8安装与配置"><span class="post-toc-number">2.</span> <span class="post-toc-text">JDK1.8安装与配置</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#安装准备-1"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">安装准备</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#开始安装-1"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">开始安装</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#配置-1"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">配置</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Redis安装与配置"><span class="post-toc-number">3.</span> <span class="post-toc-text">Redis安装与配置</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#安装准备-2"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">安装准备</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#开始安装-2"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">开始安装</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#配置-2"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">配置</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-CentOS7下MariaDB、JDK及Redis安装与配置"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">CentOS7下MariaDB、JDK及Redis安装与配置</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2020-07-27 22:59:46" datetime="2020-07-27T14:59:46.000Z"  itemprop="datePublished">2020-07-27</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85/">工具安装</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="MariaDB安装与配置"><a href="#MariaDB安装与配置" class="headerlink" title="MariaDB安装与配置"></a>MariaDB安装与配置</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><blockquote>
+<p>MariaDB数据库管理系统是MySQL的一个分支，主要由开源社区在维护，采用GPL授权许可 MariaDB的目的是完全兼容MySQL，包括API和命令行，使之能轻松成为MySQL的代替品。开发这个分支的原因之一是：甲骨文公司收购了MySQL后，有将MySQL闭源的潜在风险，因此社区采用分支的方式来避开这个风险。</p>
+</blockquote>
+<h2 id="安装准备"><a href="#安装准备" class="headerlink" title="安装准备"></a>安装准备</h2><ul>
+<li>查看系统版本</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@xukun94 ~]# cat &#x2F;etc&#x2F;redhat-release</span><br><span class="line">CentOS Linux release 7.7.1908 (Core)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>查看是否已经安装</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@xukun94 ~]# rpm -qa | grep mariadb</span><br><span class="line">mariadb-libs-5.5.65-1.el7.x86_64</span><br><span class="line">mariadb-server-5.5.65-1.el7.x86_64</span><br><span class="line">mariadb-5.5.65-1.el7.x86_64</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>以上代表安装过，可卸载重装，卸载命令</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@xukun94 ~]# yum remove mariadb-server</span><br></pre></td></tr></table></figure>
+
+<h2 id="开始安装"><a href="#开始安装" class="headerlink" title="开始安装"></a>开始安装</h2><p>通过yum安装即可，yum命令如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@xukun94 ~]# yum install mariadb-server</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>启动服务</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@xukun94 ~]# systemctl start mariadb</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>若需要开机自动启动，执行以下命令即可</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@xukun94 ~]# systemctl enable mariadb</span><br></pre></td></tr></table></figure>
+
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><h3 id="首次配置"><a href="#首次配置" class="headerlink" title="首次配置"></a>首次配置</h3><ul>
+<li>进行初始化配置</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@xukun94 ~]# mysql_secure_installation</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>配置过程如下</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line">NOTE: RUNNING ALL PARTS OF THIS SCRIPT IS RECOMMENDED FOR ALL MariaDB</span><br><span class="line">      SERVERS IN PRODUCTION USE!  PLEASE READ EACH STEP CAREFULLY!</span><br><span class="line"></span><br><span class="line">In order to log into MariaDB to secure it, we&#39;ll need the current</span><br><span class="line">password for the root user.  If you&#39;ve just installed MariaDB, and</span><br><span class="line">you haven&#39;t set the root password yet, the password will be blank,</span><br><span class="line">so you should just press enter here.</span><br><span class="line"></span><br><span class="line"># 输入数据库管理员密码，若第一次进入则直接回车</span><br><span class="line">Enter current password for root (enter for none): </span><br><span class="line">OK, successfully used password, moving on...</span><br><span class="line"></span><br><span class="line">Setting the root password ensures that nobody can log into the MariaDB</span><br><span class="line">root user without the proper authorisation.</span><br><span class="line"></span><br><span class="line"># 设置密码</span><br><span class="line">Set root password? [Y&#x2F;n] y</span><br><span class="line"># 密码</span><br><span class="line">New password: </span><br><span class="line"># 确认密码</span><br><span class="line">Re-enter new password: </span><br><span class="line">Password updated successfully!</span><br><span class="line">Reloading privilege tables..</span><br><span class="line"> ... Success!</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">By default, a MariaDB installation has an anonymous user, allowing anyone</span><br><span class="line">to log into MariaDB without having to have a user account created for</span><br><span class="line">them.  This is intended only for testing, and to make the installation</span><br><span class="line">go a bit smoother.  You should remove them before moving into a</span><br><span class="line">production environment.</span><br><span class="line"></span><br><span class="line"># 是否移除匿名用户</span><br><span class="line">Remove anonymous users? [Y&#x2F;n] y</span><br><span class="line"> ... Success!</span><br><span class="line"></span><br><span class="line">Normally, root should only be allowed to connect from &#39;localhost&#39;.  This</span><br><span class="line">ensures that someone cannot guess at the root password from the network.</span><br><span class="line"></span><br><span class="line"># 是否拒绝远程登录</span><br><span class="line">Disallow root login remotely? [Y&#x2F;n] n</span><br><span class="line"> ... skipping.</span><br><span class="line"></span><br><span class="line">By default, MariaDB comes with a database named &#39;test&#39; that anyone can</span><br><span class="line">access.  This is also intended only for testing, and should be removed</span><br><span class="line">before moving into a production environment.</span><br><span class="line"></span><br><span class="line"># 是否移除test测试数据库</span><br><span class="line">Remove test database and access to it? [Y&#x2F;n] y</span><br><span class="line"> - Dropping test database...</span><br><span class="line"> ... Success!</span><br><span class="line"> - Removing privileges on test database...</span><br><span class="line"> ... Success!</span><br><span class="line"></span><br><span class="line">Reloading the privilege tables will ensure that all changes made so far</span><br><span class="line">will take effect immediately.</span><br><span class="line"></span><br><span class="line"># 是否重新加载权限库</span><br><span class="line">Reload privilege tables now? [Y&#x2F;n] y</span><br><span class="line"> ... Success!</span><br><span class="line"></span><br><span class="line">Cleaning up...</span><br><span class="line"></span><br><span class="line">All done!  If you&#39;ve completed all of the above steps, your MariaDB</span><br><span class="line">installation should now be secure.</span><br><span class="line"></span><br><span class="line">Thanks for using MariaDB!</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>测试是否能登录成功</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[root@xukun94 ~]# mysql -u root -p</span><br><span class="line">Enter password: </span><br><span class="line">Welcome to the MariaDB monitor.  Commands end with ; or \g.</span><br><span class="line">Your MariaDB connection id is 10</span><br><span class="line">Server version: 5.5.65-MariaDB MariaDB Server</span><br><span class="line"></span><br><span class="line">Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.</span><br><span class="line"></span><br><span class="line">Type &#39;help;&#39; or &#39;\h&#39; for help. Type &#39;\c&#39; to clear the current input statement.</span><br><span class="line"></span><br><span class="line">MariaDB [(none)]&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="配置字符集为UTF-8"><a href="#配置字符集为UTF-8" class="headerlink" title="配置字符集为UTF-8"></a>配置字符集为UTF-8</h3><ul>
+<li>编辑/etc/my.cnf 文件</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@xukun94 ~]# vi &#x2F;etc&#x2F;my.cnf</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>[mysqld]标签下添加如下代码</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">init_connect&#x3D;&#39;SET collation_connection &#x3D; utf8_unicode_ci&#39;</span><br><span class="line">init_connect&#x3D;&#39;SET NAMES utf8&#39;</span><br><span class="line">character-set-server&#x3D;utf8</span><br><span class="line">collation-server&#x3D;utf8_unicode_ci</span><br><span class="line">skip-character-set-client-handshake</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>编辑/etc/my.cnf.d/client.cnf 文件，在[client]标签下添加</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">default-character-set&#x3D;utf8</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>编辑/etc/my.cnf.d/mysql-clients.cnf文件，在[mysql]标签下添加</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">default-character-set&#x3D;utf8</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>重启服务后生效</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@xukun94 ~]# systemctl restart mariadb</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>登录MariaDB，查看编码是否生效</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">MariaDB [(none)]&gt; show variables like &quot;%character%&quot;;</span><br><span class="line">+--------------------------+----------------------------+</span><br><span class="line">| Variable_name            | Value                      |</span><br><span class="line">+--------------------------+----------------------------+</span><br><span class="line">| character_set_client     | utf8                       |</span><br><span class="line">| character_set_connection | utf8                       |</span><br><span class="line">| character_set_database   | utf8                       |</span><br><span class="line">| character_set_filesystem | binary                     |</span><br><span class="line">| character_set_results    | utf8                       |</span><br><span class="line">| character_set_server     | utf8                       |</span><br><span class="line">| character_set_system     | utf8                       |</span><br><span class="line">| character_sets_dir       | &#x2F;usr&#x2F;share&#x2F;mysql&#x2F;charsets&#x2F; |</span><br><span class="line">+--------------------------+----------------------------+</span><br><span class="line">8 rows in set (0.00 sec)</span><br><span class="line"></span><br><span class="line">MariaDB [(none)]&gt; show variables like &quot;%collation%&quot;;</span><br><span class="line">+----------------------+-----------------+</span><br><span class="line">| Variable_name        | Value           |</span><br><span class="line">+----------------------+-----------------+</span><br><span class="line">| collation_connection | utf8_unicode_ci |</span><br><span class="line">| collation_database   | utf8_unicode_ci |</span><br><span class="line">| collation_server     | utf8_unicode_ci |</span><br><span class="line">+----------------------+-----------------+</span><br><span class="line">3 rows in set (0.00 sec)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>修改防火墙，开启端口</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"># 查看防火墙3306端口是否开启</span><br><span class="line">[root@xukun94 ~]# firewall-cmd --query-port&#x3D;3306&#x2F;tcp</span><br><span class="line">no</span><br><span class="line"># 开启防火墙3306端口</span><br><span class="line">[root@xukun94 ~]# firewall-cmd --zone&#x3D;public --add-port&#x3D;3306&#x2F;tcp --permanent</span><br><span class="line">success</span><br><span class="line"># 重启防火墙</span><br><span class="line">[root@xukun94 ~]# firewall-cmd --reload</span><br><span class="line">success</span><br><span class="line"># 查看防火墙3306端口是否开启</span><br><span class="line">[root@xukun94 ~]# firewall-cmd --query-port&#x3D;3306&#x2F;tcp</span><br><span class="line">yes</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>设置MariaDB可远程连接</li>
+</ul>
+<ol>
+<li><p>查看mysql库中user表</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">MariaDB [(none)]&gt; use mysql</span><br><span class="line">Reading table information for completion of table and column names</span><br><span class="line">You can turn off this feature to get a quicker startup with -A</span><br><span class="line"></span><br><span class="line">Database changed</span><br><span class="line">MariaDB [mysql]&gt; select host, user from user</span><br><span class="line">    -&gt; ;</span><br><span class="line">+-----------+------+</span><br><span class="line">| host      | user |</span><br><span class="line">+-----------+------+</span><br><span class="line">| 127.0.0.1 | root |</span><br><span class="line">| ::1       | root |</span><br><span class="line">| localhost | root |</span><br><span class="line">| xukun94   | root |</span><br><span class="line">+-----------+------+</span><br><span class="line">4 rows in set (0.00 sec)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改host为主机名的user为’%’</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">MariaDB [mysql]&gt; update user set host&#x3D;&#39;%&#39; where host&#x3D;&#39;xukun94&#39;;</span><br><span class="line">Query OK, 1 row affected (0.00 sec)</span><br><span class="line">Rows matched: 1  Changed: 1  Warnings: 0</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>刷新权限表</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">MariaDB [mysql]&gt; flush privileges;</span><br><span class="line">Query OK, 0 rows affected (0.00 sec)</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p>远程连接配置完成，使用连接工具连接即可</p>
+<h1 id="JDK1-8安装与配置"><a href="#JDK1-8安装与配置" class="headerlink" title="JDK1.8安装与配置"></a>JDK1.8安装与配置</h1><h2 id="安装准备-1"><a href="#安装准备-1" class="headerlink" title="安装准备"></a>安装准备</h2><ul>
+<li><p>查看系统位数</p>
+<p>I386–I686 都是32位</p>
+<p>x86_64 是 64位</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@xukun94 ~]# uname -a</span><br><span class="line">Linux xukun94 3.10.0-229.1.2.el7.x86_64 #1 SMP Fri Mar 27 03:04:26 UTC 2015 x86_64 x86_64 x86_64 GNU&#x2F;Linux</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>进入<a href="https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html" target="_blank" rel="noopener">Oracle官网</a>下载JDK1.8，选择对应系统位数的rpm下载</li>
+<li>使用xftp6等传输工具将下载好的文件上传到远程服务器中</li>
+</ul>
+<h2 id="开始安装-1"><a href="#开始安装-1" class="headerlink" title="开始安装"></a>开始安装</h2><p>使用rpm命令安装</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@xukun94 ~]# rpm -ivh jdk-8u261-linux-x64.rpm</span><br></pre></td></tr></table></figure>
+
+<h2 id="配置-1"><a href="#配置-1" class="headerlink" title="配置"></a>配置</h2><p>添加环境变量，编辑source /etc/profile文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@xukun94 ~]# vi &#x2F;etc&#x2F;profile</span><br></pre></td></tr></table></figure>
+
+<p>在此文件最后添加如下代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export CLASSPATH&#x3D;.:$JAVA_HOME&#x2F;jre&#x2F;lib&#x2F;rt.jar:$JAVA_HOME&#x2F;lib&#x2F;dt.jar:$JAVA_HOME&#x2F;lib&#x2F;tools.jar</span><br><span class="line">export PATH&#x3D;$JAVA_HOME&#x2F;bin:$PATH</span><br></pre></td></tr></table></figure>
+
+<p>生效环境变量</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@xukun94 ~]# source &#x2F;etc&#x2F;profile</span><br></pre></td></tr></table></figure>
+
+<p>查看jdk是否安装成功</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@xukun94 ~]# java -version</span><br><span class="line">java version &quot;1.8.0_261&quot;</span><br><span class="line">Java(TM) SE Runtime Environment (build 1.8.0_261-b12)</span><br><span class="line">Java HotSpot(TM) 64-Bit Server VM (build 25.261-b12, mixed mode)</span><br></pre></td></tr></table></figure>
+
+<h1 id="Redis安装与配置"><a href="#Redis安装与配置" class="headerlink" title="Redis安装与配置"></a>Redis安装与配置</h1><h2 id="安装准备-2"><a href="#安装准备-2" class="headerlink" title="安装准备"></a>安装准备</h2><ul>
+<li>使用wget命令下载Redis5.0.9</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@xukun94 ~]# wget http:&#x2F;&#x2F;download.redis.io&#x2F;releases&#x2F;redis-5.0.9.tar.gzwget http:&#x2F;&#x2F;download.redis.io&#x2F;releases&#x2F;redis-5.0.9.tar.gz</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>解压</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@xukun94 ~]# tar xzf redis-5.0.9.tar.gz</span><br></pre></td></tr></table></figure>
+
+<h2 id="开始安装-2"><a href="#开始安装-2" class="headerlink" title="开始安装"></a>开始安装</h2><ul>
+<li>进入解压后文件夹，执行make编译命令</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@xukun94 ~]# cd redis-5.0.9</span><br><span class="line">[root@xukun94 redis-5.0.9]# make</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>若遇到一下错误，说明gcc未安装，使用yum命令安装即可</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">MAKE hiredis</span><br><span class="line">cd hiredis &amp;&amp; make static</span><br><span class="line">make[3]: Entering directory &#96;&#x2F;root&#x2F;redis-5.0.9&#x2F;deps&#x2F;hiredis&#39;</span><br><span class="line">gcc -std&#x3D;c99 -pedantic -c -O3 -fPIC  -Wall -W -Wstrict-prototypes -Wwrite-strings -g -ggdb  net.c</span><br><span class="line">make[3]: gcc: Command not found</span><br><span class="line">make[3]: *** [net.o] Error 127</span><br><span class="line">make[3]: Leaving directory &#96;&#x2F;root&#x2F;redis-5.0.9&#x2F;deps&#x2F;hiredis&#39;</span><br><span class="line">make[2]: *** [hiredis] Error 2</span><br><span class="line">make[2]: Leaving directory &#96;&#x2F;root&#x2F;redis-5.0.9&#x2F;deps&#39;</span><br><span class="line">make[1]: [persist-settings] Error 2 (ignored)</span><br><span class="line">    CC adlist.o</span><br><span class="line">&#x2F;bin&#x2F;sh: cc: command not found</span><br><span class="line">make[1]: *** [adlist.o] Error 127</span><br><span class="line">make[1]: Leaving directory &#96;&#x2F;root&#x2F;redis-5.0.9&#x2F;src&#39;</span><br><span class="line">make: *** [all] Error 2</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>yum安装gcc</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@xukun94 redis-5.0.9]# yum install gcc</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>再次运行make编译命令，可能遇到以下错误</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">cd src &amp;&amp; make all</span><br><span class="line">make[1]: Entering directory &#96;&#x2F;root&#x2F;redis-5.0.9&#x2F;src&#39;</span><br><span class="line">    CC Makefile.dep</span><br><span class="line">make[1]: Leaving directory &#96;&#x2F;root&#x2F;redis-5.0.9&#x2F;src&#39;</span><br><span class="line">make[1]: Entering directory &#96;&#x2F;root&#x2F;redis-5.0.9&#x2F;src&#39;</span><br><span class="line">    CC adlist.o</span><br><span class="line">In file included from adlist.c:34:0:</span><br><span class="line">zmalloc.h:50:31: fatal error: jemalloc&#x2F;jemalloc.h: No such file or directory</span><br><span class="line"> #include &lt;jemalloc&#x2F;jemalloc.h&gt;</span><br><span class="line">                               ^</span><br><span class="line">compilation terminated.</span><br><span class="line">make[1]: *** [adlist.o] Error 1</span><br><span class="line">make[1]: Leaving directory &#96;&#x2F;root&#x2F;redis-5.0.9&#x2F;src&#39;</span><br><span class="line">make: *** [all] Error 2</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>执行以下代码进行编译</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@xukun94 redis-5.0.9]# make MALLOC&#x3D;libc</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>没有错误后，安装命令</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@xukun94 redis-5.0.9]# make install</span><br></pre></td></tr></table></figure>
+
+<h2 id="配置-2"><a href="#配置-2" class="headerlink" title="配置"></a>配置</h2><ul>
+<li>编辑redis.conf文件</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@xukun94 redis-5.0.9]# vi redis.conf</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>修改以下配置</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># redis后台运行</span><br><span class="line">daemonize yes</span><br><span class="line"># 添加ip</span><br><span class="line">bind 127.0.0.1 192.168.136.128</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>允许远程访问redis</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"># 查看防火墙6379端口是否开启</span><br><span class="line">[root@xukun94 redis-5.0.9]# firewall-cmd --query-port&#x3D;6379&#x2F;tcp</span><br><span class="line">no</span><br><span class="line"># 开启防火墙6379端口</span><br><span class="line">[root@xukun94 redis-5.0.9]# firewall-cmd --zone&#x3D;public --add-port&#x3D;6379&#x2F;tcp --permanent</span><br><span class="line">success</span><br><span class="line"># 重启防火墙</span><br><span class="line">[root@xukun94 redis-5.0.9]# firewall-cmd --reload</span><br><span class="line">success</span><br><span class="line"># 再次查看防火墙6379端口是否开启</span><br><span class="line">[root@xukun94 redis-5.0.9]# firewall-cmd --query-port&#x3D;6379&#x2F;tcp</span><br><span class="line">yes</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>启动redis</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@xukun94 redis-5.0.9]# redis-server redis.conf</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>登录redis，验证是否安装成功</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@xukun94 redis-5.0.9]# redis-cli</span><br><span class="line">127.0.0.1:6379&gt; exit</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>关闭服务器</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@xukun94 redis-5.0.9]# redis-cli shutdown</span><br></pre></td></tr></table></figure>
+
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2020-07-27T15:36:39.366Z" itemprop="dateUpdated">2020-07-27 23:36:39</time>
+</span><br>
+
+
+        
+        原始链接：<a href="/2020/07/27/CentOS7%E4%B8%8BMariaDB%E3%80%81JDK%E5%8F%8ARedis%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/" target="_blank" rel="external">http://xukun.fun/2020/07/27/CentOS7%E4%B8%8BMariaDB%E3%80%81JDK%E5%8F%8ARedis%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://xukun.fun">
+            <img src="/img/avater.jpg" alt="蔚蓝海">
+            蔚蓝海
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JDK/" rel="tag">JDK</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MariaDB/" rel="tag">MariaDB</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Redis/" rel="tag">Redis</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://xukun.fun/2020/07/27/CentOS7%E4%B8%8BMariaDB%E3%80%81JDK%E5%8F%8ARedis%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/&title=《CentOS7下MariaDB、JDK及Redis安装与配置》 — XuKun's Blog&pic=http://xukun.fun/img/avater.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://xukun.fun/2020/07/27/CentOS7%E4%B8%8BMariaDB%E3%80%81JDK%E5%8F%8ARedis%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/&title=《CentOS7下MariaDB、JDK及Redis安装与配置》 — XuKun's Blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://xukun.fun/2020/07/27/CentOS7%E4%B8%8BMariaDB%E3%80%81JDK%E5%8F%8ARedis%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《CentOS7下MariaDB、JDK及Redis安装与配置》 — XuKun's Blog&url=http://xukun.fun/2020/07/27/CentOS7%E4%B8%8BMariaDB%E3%80%81JDK%E5%8F%8ARedis%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/&via=http://xukun.fun" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://xukun.fun/2020/07/27/CentOS7%E4%B8%8BMariaDB%E3%80%81JDK%E5%8F%8ARedis%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2020/07/17/Shiro%E4%BF%AE%E6%94%B9%E8%A7%92%E8%89%B2%E6%9D%83%E9%99%90%E6%B8%85%E9%99%A4%E7%BC%93%E5%AD%98%E9%97%AE%E9%A2%98/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Shiro修改角色权限清除缓存问题</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "UDeKgTyLL19dqXTUnzqojuLa-gzGzoHsz",
+            appKey: "U6gPjG4EkRGxEdR29zqWCptL",
+            avatar: "mm",
+            placeholder: "请自觉遵守互联网相关的政策法规，严禁发布色情、暴力、反动的言论。",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>蔚蓝海 &copy; 2015 - 2020</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://xukun.fun/2020/07/27/CentOS7%E4%B8%8BMariaDB%E3%80%81JDK%E5%8F%8ARedis%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/&title=《CentOS7下MariaDB、JDK及Redis安装与配置》 — XuKun's Blog&pic=http://xukun.fun/img/avater.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://xukun.fun/2020/07/27/CentOS7%E4%B8%8BMariaDB%E3%80%81JDK%E5%8F%8ARedis%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/&title=《CentOS7下MariaDB、JDK及Redis安装与配置》 — XuKun's Blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://xukun.fun/2020/07/27/CentOS7%E4%B8%8BMariaDB%E3%80%81JDK%E5%8F%8ARedis%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《CentOS7下MariaDB、JDK及Redis安装与配置》 — XuKun's Blog&url=http://xukun.fun/2020/07/27/CentOS7%E4%B8%8BMariaDB%E3%80%81JDK%E5%8F%8ARedis%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/&via=http://xukun.fun" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://xukun.fun/2020/07/27/CentOS7%E4%B8%8BMariaDB%E3%80%81JDK%E5%8F%8ARedis%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://xukun.fun/2020/07/27/CentOS7%E4%B8%8BMariaDB%E3%80%81JDK%E5%8F%8ARedis%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
