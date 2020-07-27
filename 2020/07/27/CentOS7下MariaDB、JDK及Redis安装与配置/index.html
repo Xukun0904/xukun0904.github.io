@@ -29,7 +29,7 @@
 <meta property="og:description" content="MariaDB安装与配置简介 MariaDB数据库管理系统是MySQL的一个分支，主要由开源社区在维护，采用GPL授权许可 MariaDB的目的是完全兼容MySQL，包括API和命令行，使之能轻松成为MySQL的代替品。开发这个分支的原因之一是：甲骨文公司收购了MySQL后，有将MySQL闭源的潜在风险，因此社区采用分支的方式来避开这个风险。  安装准备 查看系统版本  12[root@xukun">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-07-27T14:59:46.000Z">
-<meta property="article:modified_time" content="2020-07-27T15:36:39.366Z">
+<meta property="article:modified_time" content="2020-07-27T15:44:05.531Z">
 <meta property="article:author" content="蔚蓝海">
 <meta property="article:tag" content="MariaDB">
 <meta property="article:tag" content="JDK">
@@ -269,7 +269,7 @@
 <li><p>查看mysql库中user表</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">MariaDB [(none)]&gt; use mysql</span><br><span class="line">Reading table information for completion of table and column names</span><br><span class="line">You can turn off this feature to get a quicker startup with -A</span><br><span class="line"></span><br><span class="line">Database changed</span><br><span class="line">MariaDB [mysql]&gt; select host, user from user</span><br><span class="line">    -&gt; ;</span><br><span class="line">+-----------+------+</span><br><span class="line">| host      | user |</span><br><span class="line">+-----------+------+</span><br><span class="line">| 127.0.0.1 | root |</span><br><span class="line">| ::1       | root |</span><br><span class="line">| localhost | root |</span><br><span class="line">| xukun94   | root |</span><br><span class="line">+-----------+------+</span><br><span class="line">4 rows in set (0.00 sec)</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>修改host为主机名的user为’%’</p>
+<li><p>将host为当前主机名的记录，host属性修改成’%’</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">MariaDB [mysql]&gt; update user set host&#x3D;&#39;%&#39; where host&#x3D;&#39;xukun94&#39;;</span><br><span class="line">Query OK, 1 row affected (0.00 sec)</span><br><span class="line">Rows matched: 1  Changed: 1  Warnings: 0</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>刷新权限表</p>
@@ -280,7 +280,7 @@
 <p>远程连接配置完成，使用连接工具连接即可</p>
 <h1 id="JDK1-8安装与配置"><a href="#JDK1-8安装与配置" class="headerlink" title="JDK1.8安装与配置"></a>JDK1.8安装与配置</h1><h2 id="安装准备-1"><a href="#安装准备-1" class="headerlink" title="安装准备"></a>安装准备</h2><ul>
 <li><p>查看系统位数</p>
-<p>I386–I686 都是32位</p>
+<p>I386或I686 都是32位</p>
 <p>x86_64 是 64位</p>
 </li>
 </ul>
@@ -383,7 +383,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2020-07-27T15:36:39.366Z" itemprop="dateUpdated">2020-07-27 23:36:39</time>
+    最后更新时间：<time datetime="2020-07-27T15:44:05.531Z" itemprop="dateUpdated">2020-07-27 23:44:05</time>
 </span><br>
 
 
