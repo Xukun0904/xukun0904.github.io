@@ -29,10 +29,10 @@
 <meta property="og:description" content="Docker入门学习目标：  掌握Docker基础知识，能够理解Docker镜像与容器的概念  完成Docker安装与启动  掌握Docker镜像与容器相关命令  掌握Tomcat Nginx 等软件的常用应用的安装  掌握docker迁移与备份相关命令  能够运用Dockerfile编写创建容器的脚本  能够搭建与使用docker私有仓库   1 Docker简介1.1 什么是虚拟化​    在">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://xukun.fun/2020/12/19/Docker%E5%85%A5%E9%97%A8/1-3.png">
-<meta property="og:image" content="http://xukun.fun/2020/12/19/Docker%E5%85%A5%E9%97%A8/image-20201219214242908.png">
-<meta property="og:image" content="http://xukun.fun/2020/12/19/Docker%E5%85%A5%E9%97%A8/image-20201219215135161.png">
+<meta property="og:image" content="http://xukun.fun/2020/12/19/Docker%E5%85%A5%E9%97%A8/1-6.png">
+<meta property="og:image" content="http://xukun.fun/2020/12/19/Docker%E5%85%A5%E9%97%A8/1-7.png">
 <meta property="article:published_time" content="2020-12-19T13:35:06.000Z">
-<meta property="article:modified_time" content="2020-12-19T14:24:34.601Z">
+<meta property="article:modified_time" content="2020-12-19T14:42:43.015Z">
 <meta property="article:author" content="蔚蓝海">
 <meta property="article:tag" content="Docker">
 <meta name="twitter:card" content="summary">
@@ -219,11 +219,11 @@
 <p>（4）鼓励使用面向服务的架构</p>
 <p>​    Docker还鼓励面向服务的体系结构和微服务架构。Docker推荐单个容器只运行一个应用程序或进程，这样就形成了一个分布式的应用程序模型，在这种模型下，应用程序或者服务都可以表示为一系列内部互联的容器，从而使分布式部署应用程序，扩展或调试应用程序都变得非常简单，同时也提高了程序的内省性。（当然，可以在一个容器中运行多个应用程序）</p>
 <h2 id="1-3-容器与虚拟机比较"><a href="#1-3-容器与虚拟机比较" class="headerlink" title="1.3 容器与虚拟机比较"></a>1.3 容器与虚拟机比较</h2><p>​    下面的图片比较了 Docker 和传统虚拟化方式的不同之处，可见容器是在操作系统层面上实现虚拟化，直接复用本地主机的操作系统，而传统方式则是在硬件层面实现。</p>
-{% asset_img virtualization-vs-containers_transparent.png %}
+{% asset_img 1-4.png %}
 
 <p>与传统的虚拟机相比，Docker优势体现为启动速度快、占用体积小。</p>
 <h2 id="1-4-Docker-组件"><a href="#1-4-Docker-组件" class="headerlink" title="1.4 Docker 组件"></a>1.4 Docker 组件</h2><h3 id="1-4-1-Docker服务器与客户端"><a href="#1-4-1-Docker服务器与客户端" class="headerlink" title="1.4.1 Docker服务器与客户端"></a>1.4.1 Docker服务器与客户端</h3><p>​    Docker是一个客户端-服务器（C/S）架构程序。Docker客户端只需要向Docker服务器或者守护进程发出请求，服务器或者守护进程将完成所有工作并返回结果。Docker提供了一个命令行工具Docker以及一整套RESTful API。你可以在同一台宿主机上运行Docker守护进程和客户端，也可以从本地的Docker客户端连接到运行在另一台宿主机上的远程Docker守护进程。</p>
-{% asset_img 1-2.png %}
+{% asset_img 1-5.png %}
 
 <h3 id="1-4-2-Docker镜像与容器"><a href="#1-4-2-Docker镜像与容器" class="headerlink" title="1.4.2 Docker镜像与容器"></a>1.4.2 Docker镜像与容器</h3><p>​    镜像是构建Docker的基石。用户基于镜像来运行自己的容器。镜像也是Docker生命周期中的“构建”部分。镜像是基于联合文件系统的一种层式结构，由一系列指令一步一步构建出来。例如：</p>
 <p>添加一个文件；</p>
@@ -506,7 +506,7 @@ Docker也不关心你要把容器运到何方：我们可以在自己的笔记�
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">‐H tcp:&#x2F;&#x2F;0.0.0.0:2375 ‐H unix:&#x2F;&#x2F;&#x2F;var&#x2F;run&#x2F;docker.sock</span><br></pre></td></tr></table></figure>
 
 <p>修改后如下：</p>
-<img src="/2020/12/19/Docker%E5%85%A5%E9%97%A8/image-20201219214242908.png" class="">
+<img src="/2020/12/19/Docker%E5%85%A5%E9%97%A8/1-6.png" class="">
 
 <p>（2）刷新配置，重启服务</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">systemctl daemon‐reload</span><br><span class="line">systemctl restart docker</span><br><span class="line">docker start registry</span><br></pre></td></tr></table></figure>
@@ -524,7 +524,7 @@ Docker也不关心你要把容器运到何方：我们可以在自己的笔记�
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn docker:build ‐DpushImage</span><br></pre></td></tr></table></figure>
 
 <p>执行后，会有如下输出，代码正在上传</p>
-<img src="/2020/12/19/Docker%E5%85%A5%E9%97%A8/image-20201219215135161.png" class="">
+<img src="/2020/12/19/Docker%E5%85%A5%E9%97%A8/1-7.png" class="">
 
 <p>（6）进入宿主机 , 查看镜像</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker images</span><br></pre></td></tr></table></figure>
@@ -546,7 +546,7 @@ Docker也不关心你要把容器运到何方：我们可以在自己的笔记�
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2020-12-19T14:24:34.601Z" itemprop="dateUpdated">2020-12-19 22:24:34</time>
+    最后更新时间：<time datetime="2020-12-19T14:42:43.015Z" itemprop="dateUpdated">2020-12-19 22:42:43</time>
 </span><br>
 
 
