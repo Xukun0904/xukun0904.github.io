@@ -28,15 +28,15 @@
 <meta property="og:site_name" content="XuKun&#39;s Blog">
 <meta property="og:description" content="Docker入门学习目标：  掌握Docker基础知识，能够理解Docker镜像与容器的概念  完成Docker安装与启动  掌握Docker镜像与容器相关命令  掌握Tomcat Nginx 等软件的常用应用的安装  掌握docker迁移与备份相关命令  能够运用Dockerfile编写创建容器的脚本  能够搭建与使用docker私有仓库   1 Docker简介1.1 什么是虚拟化​    在">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="d:/Resource/Blog/source/_posts/Docker入门.assets/1-3.png">
-<meta property="og:image" content="d:/Resource/Blog/source/_posts/Docker入门.assets/image-20201219214242908.png">
-<meta property="og:image" content="d:/Resource/Blog/source/_posts/Docker入门.assets/image-20201219215135161.png">
+<meta property="og:image" content="http://xukun.fun/.fun//Resource/Blog/source/_posts/Docker%E5%85%A5%E9%97%A8.assets/1-3.png">
+<meta property="og:image" content="http://xukun.fun/.fun//Resource/Blog/source/_posts/Docker%E5%85%A5%E9%97%A8.assets/image-20201219214242908.png">
+<meta property="og:image" content="http://xukun.fun/.fun//Resource/Blog/source/_posts/Docker%E5%85%A5%E9%97%A8.assets/image-20201219215135161.png">
 <meta property="article:published_time" content="2020-12-19T13:35:06.000Z">
-<meta property="article:modified_time" content="2020-12-19T13:58:26.227Z">
+<meta property="article:modified_time" content="2020-12-19T14:08:56.869Z">
 <meta property="article:author" content="蔚蓝海">
 <meta property="article:tag" content="Docker">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="d:/Resource/Blog/source/_posts/Docker入门.assets/1-3.png">
+<meta name="twitter:image" content="http://xukun.fun/.fun//Resource/Blog/source/_posts/Docker%E5%85%A5%E9%97%A8.assets/1-3.png">
     
         <link rel="alternate" type="application/atom+xml" title="XuKun&#39;s Blog" href="/atom.xml">
     
@@ -207,7 +207,7 @@
 <p>​    <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="D:\Resource\Blog\source\_posts\Docker入门.assets\1-3.png" alt="" title="">
+                    <img src="/.fun//Resource\Blog\source\_posts\Docker入门.assets\1-3.png" alt title>
                 </div>
                 <div class="image-caption"></div>
             </figure></p>
@@ -481,7 +481,7 @@ Docker也不关心你要把容器运到何方：我们可以在自己的笔记�
 <p>（2）启动私有仓库容器</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -di --name=registry -p 5000:5000 registry</span><br></pre></td></tr></table></figure>
 
-<p>（3）打开浏览器 输入地址<a href="http://192.168.184.141:5000/v2/_catalog看到`{&quot;repositories&quot;:[]}`" target="_blank" rel="noopener">http://192.168.184.141:5000/v2/_catalog看到`{&quot;repositories&quot;:[]}`</a> 表示私有仓库搭建成功并且内容为空</p>
+<p>（3）打开浏览器 输入地址<a href="http://192.168.184.141:5000/v2/_catalog" target="_blank" rel="noopener">http://192.168.184.141:5000/v2/_catalog</a>看到<code>{&quot;repositories&quot;:[]}</code> 表示私有仓库搭建成功并且内容为空</p>
 <p>（4）修改daemon.json</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/docker/daemon.json</span><br></pre></td></tr></table></figure>
 
@@ -514,7 +514,7 @@ Docker也不关心你要把容器运到何方：我们可以在自己的笔记�
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="D:\Resource\Blog\source\_posts\Docker入门.assets\image-20201219214242908.png" alt="image-20201219214242908" title="">
+                    <img src="/.fun//Resource\Blog\source\_posts\Docker入门.assets\image-20201219214242908.png" alt="image-20201219214242908" title>
                 </div>
                 <div class="image-caption">image-20201219214242908</div>
             </figure>
@@ -538,7 +538,7 @@ Docker也不关心你要把容器运到何方：我们可以在自己的笔记�
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="D:\Resource\Blog\source\_posts\Docker入门.assets\image-20201219215135161.png" alt="image-20201219215135161" title="">
+                    <img src="/.fun//Resource\Blog\source\_posts\Docker入门.assets\image-20201219215135161.png" alt="image-20201219215135161" title>
                 </div>
                 <div class="image-caption">image-20201219215135161</div>
             </figure>
@@ -563,7 +563,7 @@ Docker也不关心你要把容器运到何方：我们可以在自己的笔记�
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2020-12-19T13:58:26.227Z" itemprop="dateUpdated">2020-12-19 21:58:26</time>
+    最后更新时间：<time datetime="2020-12-19T14:08:56.869Z" itemprop="dateUpdated">2020-12-19 22:08:56</time>
 </span><br>
 
 

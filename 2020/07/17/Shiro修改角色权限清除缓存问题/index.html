@@ -28,15 +28,15 @@
 <meta property="og:site_name" content="XuKun&#39;s Blog">
 <meta property="og:description" content="问题描述​    使用Shiro中shiro:hasPermission标签，修改角色权限后相同角色下各个用户权限不一致问题。在角色管理中修改当前登陆人的角色权限，当前用户的权限更新了，但是这个角色下其它用户的权限还是修改前的权限。 问题原因​    shiro:hasPermission进行比较权限时，先通过CacheManager获取了Redis中的当前用户的权限缓存。   ​    而更新角">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://xukun.fun/2020/07/17/Shiro%E4%BF%AE%E6%94%B9%E8%A7%92%E8%89%B2%E6%9D%83%E9%99%90%E6%B8%85%E9%99%A4%E7%BC%93%E5%AD%98%E9%97%AE%E9%A2%98/20200717142806.png">
-<meta property="og:image" content="http://xukun.fun/2020/07/17/Shiro%E4%BF%AE%E6%94%B9%E8%A7%92%E8%89%B2%E6%9D%83%E9%99%90%E6%B8%85%E9%99%A4%E7%BC%93%E5%AD%98%E9%97%AE%E9%A2%98/20200717135435.png">
-<meta property="og:image" content="http://xukun.fun/2020/07/17/Shiro%E4%BF%AE%E6%94%B9%E8%A7%92%E8%89%B2%E6%9D%83%E9%99%90%E6%B8%85%E9%99%A4%E7%BC%93%E5%AD%98%E9%97%AE%E9%A2%98/20200717140127.png">
+<meta property="og:image" content="http://xukun.fun/.fun//07/17/Shiro%E4%BF%AE%E6%94%B9%E8%A7%92%E8%89%B2%E6%9D%83%E9%99%90%E6%B8%85%E9%99%A4%E7%BC%93%E5%AD%98%E9%97%AE%E9%A2%98/20200717142806.png">
+<meta property="og:image" content="http://xukun.fun/.fun//07/17/Shiro%E4%BF%AE%E6%94%B9%E8%A7%92%E8%89%B2%E6%9D%83%E9%99%90%E6%B8%85%E9%99%A4%E7%BC%93%E5%AD%98%E9%97%AE%E9%A2%98/20200717135435.png">
+<meta property="og:image" content="http://xukun.fun/.fun//07/17/Shiro%E4%BF%AE%E6%94%B9%E8%A7%92%E8%89%B2%E6%9D%83%E9%99%90%E6%B8%85%E9%99%A4%E7%BC%93%E5%AD%98%E9%97%AE%E9%A2%98/20200717140127.png">
 <meta property="article:published_time" content="2020-07-17T05:25:40.000Z">
 <meta property="article:modified_time" content="2020-07-19T04:41:08.233Z">
 <meta property="article:author" content="蔚蓝海">
 <meta property="article:tag" content="Shiro">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://xukun.fun/2020/07/17/Shiro%E4%BF%AE%E6%94%B9%E8%A7%92%E8%89%B2%E6%9D%83%E9%99%90%E6%B8%85%E9%99%A4%E7%BC%93%E5%AD%98%E9%97%AE%E9%A2%98/20200717142806.png">
+<meta name="twitter:image" content="http://xukun.fun/.fun//07/17/Shiro%E4%BF%AE%E6%94%B9%E8%A7%92%E8%89%B2%E6%9D%83%E9%99%90%E6%B8%85%E9%99%A4%E7%BC%93%E5%AD%98%E9%97%AE%E9%A2%98/20200717142806.png">
     
         <link rel="alternate" type="application/atom+xml" title="XuKun&#39;s Blog" href="/atom.xml">
     
@@ -185,13 +185,13 @@
         <div class="post-content" id="post-content" itemprop="postContent">
             <h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><p>​    使用Shiro中shiro:hasPermission标签，修改角色权限后相同角色下各个用户权限不一致问题。在角色管理中修改当前登陆人的角色权限，当前用户的权限更新了，但是这个角色下其它用户的权限还是修改前的权限。</p>
 <h1 id="问题原因"><a href="#问题原因" class="headerlink" title="问题原因"></a>问题原因</h1><p>​    shiro:hasPermission进行比较权限时，先通过CacheManager获取了Redis中的当前用户的权限缓存。</p>
-<img src="/2020/07/17/Shiro%E4%BF%AE%E6%94%B9%E8%A7%92%E8%89%B2%E6%9D%83%E9%99%90%E6%B8%85%E9%99%A4%E7%BC%93%E5%AD%98%E9%97%AE%E9%A2%98/20200717142806.png" class="">
+<img src="/.fun//07/17/Shiro%E4%BF%AE%E6%94%B9%E8%A7%92%E8%89%B2%E6%9D%83%E9%99%90%E6%B8%85%E9%99%A4%E7%BC%93%E5%AD%98%E9%97%AE%E9%A2%98/20200717142806.png" class>
 
 <p>​    而更新角色权限后，调用Realm中的内置的clearCache方法清除权限缓存，只清除了当前用户的权限缓存。</p>
-<img src="/2020/07/17/Shiro%E4%BF%AE%E6%94%B9%E8%A7%92%E8%89%B2%E6%9D%83%E9%99%90%E6%B8%85%E9%99%A4%E7%BC%93%E5%AD%98%E9%97%AE%E9%A2%98/20200717135435.png" class="">
+<img src="/.fun//07/17/Shiro%E4%BF%AE%E6%94%B9%E8%A7%92%E8%89%B2%E6%9D%83%E9%99%90%E6%B8%85%E9%99%A4%E7%BC%93%E5%AD%98%E9%97%AE%E9%A2%98/20200717135435.png" class>
 
 <h1 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h1><p>​    需要清除该角色下所有用户的权限缓存，通过RedisSessionDAO获取所有用户信息，然后循环清除用户权限缓存。若需要清除指定用户权限缓存，可将SimplePrincipalCollection对象强转成用户对象，再根据传入用户主键集合判断是否需要清除权限缓存。</p>
-<img src="/2020/07/17/Shiro%E4%BF%AE%E6%94%B9%E8%A7%92%E8%89%B2%E6%9D%83%E9%99%90%E6%B8%85%E9%99%A4%E7%BC%93%E5%AD%98%E9%97%AE%E9%A2%98/20200717140127.png" class="">
+<img src="/.fun//07/17/Shiro%E4%BF%AE%E6%94%B9%E8%A7%92%E8%89%B2%E6%9D%83%E9%99%90%E6%B8%85%E9%99%A4%E7%BC%93%E5%AD%98%E9%97%AE%E9%A2%98/20200717140127.png" class>
         </div>
 
         <blockquote class="post-copyright">
