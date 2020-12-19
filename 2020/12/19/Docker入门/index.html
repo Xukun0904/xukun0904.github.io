@@ -28,15 +28,15 @@
 <meta property="og:site_name" content="XuKun&#39;s Blog">
 <meta property="og:description" content="Docker入门学习目标：  掌握Docker基础知识，能够理解Docker镜像与容器的概念  完成Docker安装与启动  掌握Docker镜像与容器相关命令  掌握Tomcat Nginx 等软件的常用应用的安装  掌握docker迁移与备份相关命令  能够运用Dockerfile编写创建容器的脚本  能够搭建与使用docker私有仓库   1 Docker简介1.1 什么是虚拟化​    在">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://xukun.fun/.fun//12/19/Docker%E5%85%A5%E9%97%A8/1-3.png">
-<meta property="og:image" content="http://xukun.fun/.fun//12/19/Docker%E5%85%A5%E9%97%A8/image-20201219214242908.png">
-<meta property="og:image" content="http://xukun.fun/.fun//12/19/Docker%E5%85%A5%E9%97%A8/image-20201219215135161.png">
+<meta property="og:image" content="http://xukun.fun/2020/12/19/Docker%E5%85%A5%E9%97%A8/1-3.png">
+<meta property="og:image" content="http://xukun.fun/2020/12/19/Docker%E5%85%A5%E9%97%A8/image-20201219214242908.png">
+<meta property="og:image" content="http://xukun.fun/2020/12/19/Docker%E5%85%A5%E9%97%A8/image-20201219215135161.png">
 <meta property="article:published_time" content="2020-12-19T13:35:06.000Z">
 <meta property="article:modified_time" content="2020-12-19T14:24:34.601Z">
 <meta property="article:author" content="蔚蓝海">
 <meta property="article:tag" content="Docker">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://xukun.fun/.fun//12/19/Docker%E5%85%A5%E9%97%A8/1-3.png">
+<meta name="twitter:image" content="http://xukun.fun/2020/12/19/Docker%E5%85%A5%E9%97%A8/1-3.png">
     
         <link rel="alternate" type="application/atom+xml" title="XuKun&#39;s Blog" href="/atom.xml">
     
@@ -204,7 +204,7 @@
 <p>​    在实际的生产环境中，虚拟化技术主要用来解决高性能的物理硬件产能过剩和老的旧的硬件产能过低的重组重用，透明化底层物理硬件，从而最大化的利用物理硬件   对资源充分利用</p>
 <p>​    虚拟化技术种类很多，例如：软件虚拟化、硬件虚拟化、内存虚拟化、网络虚拟化(vip)、桌面虚拟化、服务虚拟化、虚拟机等等。</p>
 <h2 id="1-2-什么是Docker"><a href="#1-2-什么是Docker" class="headerlink" title="1.2 什么是Docker"></a>1.2 什么是Docker</h2><p>​    Docker 是一个开源项目，诞生于 2013 年初，最初是 dotCloud 公司内部的一个业余项目。它基于 Google 公司推出的 Go 语言实现。 项目后来加入了 Linux 基金会，遵从了 Apache 2.0 协议，项目代码在 <a href="https://github.com/docker/docker" target="_blank" rel="noopener">GitHub</a> 上进行维护。</p>
-<img src="/.fun//12/19/Docker%E5%85%A5%E9%97%A8/1-3.png" class>
+<img src="/2020/12/19/Docker%E5%85%A5%E9%97%A8/1-3.png" class="">
 
 <p>​    Docker 自开源后受到广泛的关注和讨论，以至于 dotCloud 公司后来都改名为 Docker Inc。Redhat 已经在其 RHEL6.5 中集中支持 Docker；Google 也在其 PaaS 产品中广泛应用。</p>
 <p>​    Docker 项目的目标是实现轻量级的操作系统虚拟化解决方案。 Docker 的基础是 Linux 容器（LXC）等技术。</p>
@@ -506,7 +506,7 @@ Docker也不关心你要把容器运到何方：我们可以在自己的笔记�
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">‐H tcp:&#x2F;&#x2F;0.0.0.0:2375 ‐H unix:&#x2F;&#x2F;&#x2F;var&#x2F;run&#x2F;docker.sock</span><br></pre></td></tr></table></figure>
 
 <p>修改后如下：</p>
-<img src="/.fun//12/19/Docker%E5%85%A5%E9%97%A8/image-20201219214242908.png" class>
+<img src="/2020/12/19/Docker%E5%85%A5%E9%97%A8/image-20201219214242908.png" class="">
 
 <p>（2）刷新配置，重启服务</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">systemctl daemon‐reload</span><br><span class="line">systemctl restart docker</span><br><span class="line">docker start registry</span><br></pre></td></tr></table></figure>
@@ -524,7 +524,7 @@ Docker也不关心你要把容器运到何方：我们可以在自己的笔记�
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn docker:build ‐DpushImage</span><br></pre></td></tr></table></figure>
 
 <p>执行后，会有如下输出，代码正在上传</p>
-<img src="/.fun//12/19/Docker%E5%85%A5%E9%97%A8/image-20201219215135161.png" class>
+<img src="/2020/12/19/Docker%E5%85%A5%E9%97%A8/image-20201219215135161.png" class="">
 
 <p>（6）进入宿主机 , 查看镜像</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker images</span><br></pre></td></tr></table></figure>
