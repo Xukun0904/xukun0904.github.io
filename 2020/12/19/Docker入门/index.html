@@ -32,7 +32,7 @@
 <meta property="og:image" content="http://xukun.fun/2020/12/19/Docker%E5%85%A5%E9%97%A8/1-6.png">
 <meta property="og:image" content="http://xukun.fun/2020/12/19/Docker%E5%85%A5%E9%97%A8/1-7.png">
 <meta property="article:published_time" content="2020-12-19T13:35:06.000Z">
-<meta property="article:modified_time" content="2020-12-19T14:54:14.595Z">
+<meta property="article:modified_time" content="2020-12-19T14:56:40.541Z">
 <meta property="article:author" content="蔚蓝海">
 <meta property="article:tag" content="Docker">
 <meta name="twitter:card" content="summary">
@@ -216,8 +216,12 @@
 <p>​    使用Docker，开发人员只需要关心容器中运行的应用程序，而运维人员只需要关心如何管理容器。Docker设计的目的就是要加强开发人员写代码的开发环境与应用程序要部署的生产环境一致性。从而降低那种“开发时一切正常，肯定是运维的问题（测试环境都是正常的，上线后出了问题就归结为肯定是运维的问题）”</p>
 <p>（3）快速高效的开发生命周期</p>
 <p>​    Docker的目标之一就是缩短代码从开发、测试到部署、上线运行的周期，让你的应用程序具备可移植性，易于构建，并易于协作。（通俗一点说，Docker就像一个盒子，里面可以装很多物件，如果需要这些物件的可以直接将该大盒子拿走，而不需要从该盒子中一件件的取。）</p>
+{% asset_img bbb.png %}
+
 <p>（4）鼓励使用面向服务的架构</p>
 <p>​    Docker还鼓励面向服务的体系结构和微服务架构。Docker推荐单个容器只运行一个应用程序或进程，这样就形成了一个分布式的应用程序模型，在这种模型下，应用程序或者服务都可以表示为一系列内部互联的容器，从而使分布式部署应用程序，扩展或调试应用程序都变得非常简单，同时也提高了程序的内省性。（当然，可以在一个容器中运行多个应用程序）</p>
+{% asset_img aaa.png %}
+
 <h2 id="1-3-容器与虚拟机比较"><a href="#1-3-容器与虚拟机比较" class="headerlink" title="1.3 容器与虚拟机比较"></a>1.3 容器与虚拟机比较</h2><p>​    下面的图片比较了 Docker 和传统虚拟化方式的不同之处，可见容器是在操作系统层面上实现虚拟化，直接复用本地主机的操作系统，而传统方式则是在硬件层面实现。</p>
 {% asset_img 1-8.png %}
 
@@ -552,7 +556,7 @@ Docker也不关心你要把容器运到何方：我们可以在自己的笔记�
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2020-12-19T14:54:14.595Z" itemprop="dateUpdated">2020-12-19 22:54:14</time>
+    最后更新时间：<time datetime="2020-12-19T14:56:40.541Z" itemprop="dateUpdated">2020-12-19 22:56:40</time>
 </span><br>
 
 
