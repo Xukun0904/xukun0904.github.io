@@ -24,19 +24,19 @@
     <meta name="description" content="问题描述​    使用Shiro中shiro:hasPermission标签，修改角色权限后相同角色下各个用户权限不一致问题。在角色管理中修改当前登陆人的角色权限，当前用户的权限更新了，但是这个角色下其它用户的权限还是修改前的权限。 问题原因​    shiro:hasPermission进行比较权限时，先通过CacheManager获取了Redis中的当前用户的权限缓存。   ​    而更新角">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Shiro修改角色权限清除缓存问题">
-<meta property="og:url" content="http://xukun.fun/2020/07/17/Shiro%E4%BF%AE%E6%94%B9%E8%A7%92%E8%89%B2%E6%9D%83%E9%99%90%E6%B8%85%E9%99%A4%E7%BC%93%E5%AD%98%E9%97%AE%E9%A2%98/index.html">
+<meta property="og:url" content="http://xukun.fit/2020/07/17/Shiro%E4%BF%AE%E6%94%B9%E8%A7%92%E8%89%B2%E6%9D%83%E9%99%90%E6%B8%85%E9%99%A4%E7%BC%93%E5%AD%98%E9%97%AE%E9%A2%98/index.html">
 <meta property="og:site_name" content="XuKun&#39;s Blog">
 <meta property="og:description" content="问题描述​    使用Shiro中shiro:hasPermission标签，修改角色权限后相同角色下各个用户权限不一致问题。在角色管理中修改当前登陆人的角色权限，当前用户的权限更新了，但是这个角色下其它用户的权限还是修改前的权限。 问题原因​    shiro:hasPermission进行比较权限时，先通过CacheManager获取了Redis中的当前用户的权限缓存。   ​    而更新角">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://xukun.fun/2020/07/17/Shiro%E4%BF%AE%E6%94%B9%E8%A7%92%E8%89%B2%E6%9D%83%E9%99%90%E6%B8%85%E9%99%A4%E7%BC%93%E5%AD%98%E9%97%AE%E9%A2%98/20200717142806.png">
-<meta property="og:image" content="http://xukun.fun/2020/07/17/Shiro%E4%BF%AE%E6%94%B9%E8%A7%92%E8%89%B2%E6%9D%83%E9%99%90%E6%B8%85%E9%99%A4%E7%BC%93%E5%AD%98%E9%97%AE%E9%A2%98/20200717135435.png">
-<meta property="og:image" content="http://xukun.fun/2020/07/17/Shiro%E4%BF%AE%E6%94%B9%E8%A7%92%E8%89%B2%E6%9D%83%E9%99%90%E6%B8%85%E9%99%A4%E7%BC%93%E5%AD%98%E9%97%AE%E9%A2%98/20200717140127.png">
+<meta property="og:image" content="http://xukun.fit/2020/07/17/Shiro%E4%BF%AE%E6%94%B9%E8%A7%92%E8%89%B2%E6%9D%83%E9%99%90%E6%B8%85%E9%99%A4%E7%BC%93%E5%AD%98%E9%97%AE%E9%A2%98/20200717142806.png">
+<meta property="og:image" content="http://xukun.fit/2020/07/17/Shiro%E4%BF%AE%E6%94%B9%E8%A7%92%E8%89%B2%E6%9D%83%E9%99%90%E6%B8%85%E9%99%A4%E7%BC%93%E5%AD%98%E9%97%AE%E9%A2%98/20200717135435.png">
+<meta property="og:image" content="http://xukun.fit/2020/07/17/Shiro%E4%BF%AE%E6%94%B9%E8%A7%92%E8%89%B2%E6%9D%83%E9%99%90%E6%B8%85%E9%99%A4%E7%BC%93%E5%AD%98%E9%97%AE%E9%A2%98/20200717140127.png">
 <meta property="article:published_time" content="2020-07-17T05:25:40.000Z">
 <meta property="article:modified_time" content="2020-07-19T04:41:08.233Z">
 <meta property="article:author" content="蔚蓝海">
 <meta property="article:tag" content="Shiro">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://xukun.fun/2020/07/17/Shiro%E4%BF%AE%E6%94%B9%E8%A7%92%E8%89%B2%E6%9D%83%E9%99%90%E6%B8%85%E9%99%A4%E7%BC%93%E5%AD%98%E9%97%AE%E9%A2%98/20200717142806.png">
+<meta name="twitter:image" content="http://xukun.fit/2020/07/17/Shiro%E4%BF%AE%E6%94%B9%E8%A7%92%E8%89%B2%E6%9D%83%E9%99%90%E6%B8%85%E9%99%A4%E7%BC%93%E5%AD%98%E9%97%AE%E9%A2%98/20200717142806.png">
     
         <link rel="alternate" type="application/atom+xml" title="XuKun&#39;s Blog" href="/atom.xml">
     
@@ -204,12 +204,12 @@
 
 
         
-        原始链接：<a href="/2020/07/17/Shiro%E4%BF%AE%E6%94%B9%E8%A7%92%E8%89%B2%E6%9D%83%E9%99%90%E6%B8%85%E9%99%A4%E7%BC%93%E5%AD%98%E9%97%AE%E9%A2%98/" target="_blank" rel="external">http://xukun.fun/2020/07/17/Shiro%E4%BF%AE%E6%94%B9%E8%A7%92%E8%89%B2%E6%9D%83%E9%99%90%E6%B8%85%E9%99%A4%E7%BC%93%E5%AD%98%E9%97%AE%E9%A2%98/</a>
+        原始链接：<a href="/2020/07/17/Shiro%E4%BF%AE%E6%94%B9%E8%A7%92%E8%89%B2%E6%9D%83%E9%99%90%E6%B8%85%E9%99%A4%E7%BC%93%E5%AD%98%E9%97%AE%E9%A2%98/" target="_blank" rel="external">http://xukun.fit/2020/07/17/Shiro%E4%BF%AE%E6%94%B9%E8%A7%92%E8%89%B2%E6%9D%83%E9%99%90%E6%B8%85%E9%99%A4%E7%BC%93%E5%AD%98%E9%97%AE%E9%A2%98/</a>
         
     </div>
     
     <footer>
-        <a href="http://xukun.fun">
+        <a href="http://xukun.fit">
             <img src="/img/avater.jpg" alt="蔚蓝海">
             蔚蓝海
         </a>
@@ -231,7 +231,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://xukun.fun/2020/07/17/Shiro%E4%BF%AE%E6%94%B9%E8%A7%92%E8%89%B2%E6%9D%83%E9%99%90%E6%B8%85%E9%99%A4%E7%BC%93%E5%AD%98%E9%97%AE%E9%A2%98/&title=《Shiro修改角色权限清除缓存问题》 — XuKun's Blog&pic=http://xukun.fun/img/avater.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://xukun.fit/2020/07/17/Shiro%E4%BF%AE%E6%94%B9%E8%A7%92%E8%89%B2%E6%9D%83%E9%99%90%E6%B8%85%E9%99%A4%E7%BC%93%E5%AD%98%E9%97%AE%E9%A2%98/&title=《Shiro修改角色权限清除缓存问题》 — XuKun's Blog&pic=http://xukun.fit/img/avater.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -241,22 +241,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://xukun.fun/2020/07/17/Shiro%E4%BF%AE%E6%94%B9%E8%A7%92%E8%89%B2%E6%9D%83%E9%99%90%E6%B8%85%E9%99%A4%E7%BC%93%E5%AD%98%E9%97%AE%E9%A2%98/&title=《Shiro修改角色权限清除缓存问题》 — XuKun's Blog&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://xukun.fit/2020/07/17/Shiro%E4%BF%AE%E6%94%B9%E8%A7%92%E8%89%B2%E6%9D%83%E9%99%90%E6%B8%85%E9%99%A4%E7%BC%93%E5%AD%98%E9%97%AE%E9%A2%98/&title=《Shiro修改角色权限清除缓存问题》 — XuKun's Blog&source=" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://xukun.fun/2020/07/17/Shiro%E4%BF%AE%E6%94%B9%E8%A7%92%E8%89%B2%E6%9D%83%E9%99%90%E6%B8%85%E9%99%A4%E7%BC%93%E5%AD%98%E9%97%AE%E9%A2%98/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://xukun.fit/2020/07/17/Shiro%E4%BF%AE%E6%94%B9%E8%A7%92%E8%89%B2%E6%9D%83%E9%99%90%E6%B8%85%E9%99%A4%E7%BC%93%E5%AD%98%E9%97%AE%E9%A2%98/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Shiro修改角色权限清除缓存问题》 — XuKun's Blog&url=http://xukun.fun/2020/07/17/Shiro%E4%BF%AE%E6%94%B9%E8%A7%92%E8%89%B2%E6%9D%83%E9%99%90%E6%B8%85%E9%99%A4%E7%BC%93%E5%AD%98%E9%97%AE%E9%A2%98/&via=http://xukun.fun" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Shiro修改角色权限清除缓存问题》 — XuKun's Blog&url=http://xukun.fit/2020/07/17/Shiro%E4%BF%AE%E6%94%B9%E8%A7%92%E8%89%B2%E6%9D%83%E9%99%90%E6%B8%85%E9%99%A4%E7%BC%93%E5%AD%98%E9%97%AE%E9%A2%98/&via=http://xukun.fit" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://xukun.fun/2020/07/17/Shiro%E4%BF%AE%E6%94%B9%E8%A7%92%E8%89%B2%E6%9D%83%E9%99%90%E6%B8%85%E9%99%A4%E7%BC%93%E5%AD%98%E9%97%AE%E9%A2%98/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://xukun.fit/2020/07/17/Shiro%E4%BF%AE%E6%94%B9%E8%A7%92%E8%89%B2%E6%9D%83%E9%99%90%E6%B8%85%E9%99%A4%E7%BC%93%E5%AD%98%E9%97%AE%E9%A2%98/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -388,7 +388,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://xukun.fun/2020/07/17/Shiro%E4%BF%AE%E6%94%B9%E8%A7%92%E8%89%B2%E6%9D%83%E9%99%90%E6%B8%85%E9%99%A4%E7%BC%93%E5%AD%98%E9%97%AE%E9%A2%98/&title=《Shiro修改角色权限清除缓存问题》 — XuKun's Blog&pic=http://xukun.fun/img/avater.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://xukun.fit/2020/07/17/Shiro%E4%BF%AE%E6%94%B9%E8%A7%92%E8%89%B2%E6%9D%83%E9%99%90%E6%B8%85%E9%99%A4%E7%BC%93%E5%AD%98%E9%97%AE%E9%A2%98/&title=《Shiro修改角色权限清除缓存问题》 — XuKun's Blog&pic=http://xukun.fit/img/avater.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -398,22 +398,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://xukun.fun/2020/07/17/Shiro%E4%BF%AE%E6%94%B9%E8%A7%92%E8%89%B2%E6%9D%83%E9%99%90%E6%B8%85%E9%99%A4%E7%BC%93%E5%AD%98%E9%97%AE%E9%A2%98/&title=《Shiro修改角色权限清除缓存问题》 — XuKun's Blog&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://xukun.fit/2020/07/17/Shiro%E4%BF%AE%E6%94%B9%E8%A7%92%E8%89%B2%E6%9D%83%E9%99%90%E6%B8%85%E9%99%A4%E7%BC%93%E5%AD%98%E9%97%AE%E9%A2%98/&title=《Shiro修改角色权限清除缓存问题》 — XuKun's Blog&source=" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://xukun.fun/2020/07/17/Shiro%E4%BF%AE%E6%94%B9%E8%A7%92%E8%89%B2%E6%9D%83%E9%99%90%E6%B8%85%E9%99%A4%E7%BC%93%E5%AD%98%E9%97%AE%E9%A2%98/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://xukun.fit/2020/07/17/Shiro%E4%BF%AE%E6%94%B9%E8%A7%92%E8%89%B2%E6%9D%83%E9%99%90%E6%B8%85%E9%99%A4%E7%BC%93%E5%AD%98%E9%97%AE%E9%A2%98/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Shiro修改角色权限清除缓存问题》 — XuKun's Blog&url=http://xukun.fun/2020/07/17/Shiro%E4%BF%AE%E6%94%B9%E8%A7%92%E8%89%B2%E6%9D%83%E9%99%90%E6%B8%85%E9%99%A4%E7%BC%93%E5%AD%98%E9%97%AE%E9%A2%98/&via=http://xukun.fun" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Shiro修改角色权限清除缓存问题》 — XuKun's Blog&url=http://xukun.fit/2020/07/17/Shiro%E4%BF%AE%E6%94%B9%E8%A7%92%E8%89%B2%E6%9D%83%E9%99%90%E6%B8%85%E9%99%A4%E7%BC%93%E5%AD%98%E9%97%AE%E9%A2%98/&via=http://xukun.fit" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://xukun.fun/2020/07/17/Shiro%E4%BF%AE%E6%94%B9%E8%A7%92%E8%89%B2%E6%9D%83%E9%99%90%E6%B8%85%E9%99%A4%E7%BC%93%E5%AD%98%E9%97%AE%E9%A2%98/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://xukun.fit/2020/07/17/Shiro%E4%BF%AE%E6%94%B9%E8%A7%92%E8%89%B2%E6%9D%83%E9%99%90%E6%B8%85%E9%99%A4%E7%BC%93%E5%AD%98%E9%97%AE%E9%A2%98/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -424,7 +424,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://xukun.fun/2020/07/17/Shiro%E4%BF%AE%E6%94%B9%E8%A7%92%E8%89%B2%E6%9D%83%E9%99%90%E6%B8%85%E9%99%A4%E7%BC%93%E5%AD%98%E9%97%AE%E9%A2%98/" alt="微信分享二维码">
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://xukun.fit/2020/07/17/Shiro%E4%BF%AE%E6%94%B9%E8%A7%92%E8%89%B2%E6%9D%83%E9%99%90%E6%B8%85%E9%99%A4%E7%BC%93%E5%AD%98%E9%97%AE%E9%A2%98/" alt="微信分享二维码">
 </div>
 
 

@@ -5,9 +5,9 @@
   <subtitle>做最好的自己！</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://xukun.fun/"/>
+  <link href="http://xukun.fit/"/>
   <updated>2020-12-19T15:02:29.412Z</updated>
-  <id>http://xukun.fun/</id>
+  <id>http://xukun.fit/</id>
   
   <author>
     <name>蔚蓝海</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>Docker入门</title>
-    <link href="http://xukun.fun/2020/12/19/Docker%E5%85%A5%E9%97%A8/"/>
-    <id>http://xukun.fun/2020/12/19/Docker%E5%85%A5%E9%97%A8/</id>
+    <link href="http://xukun.fit/2020/12/19/Docker%E5%85%A5%E9%97%A8/"/>
+    <id>http://xukun.fit/2020/12/19/Docker%E5%85%A5%E9%97%A8/</id>
     <published>2020-12-19T13:35:06.000Z</published>
     <updated>2020-12-19T15:02:29.412Z</updated>
     
@@ -37,17 +37,17 @@
     </summary>
     
     
-      <category term="学习笔记" scheme="http://xukun.fun/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+      <category term="学习笔记" scheme="http://xukun.fit/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="Docker" scheme="http://xukun.fun/tags/Docker/"/>
+      <category term="Docker" scheme="http://xukun.fit/tags/Docker/"/>
     
   </entry>
   
   <entry>
     <title>CentOS7下MariaDB、JDK及Redis安装与配置</title>
-    <link href="http://xukun.fun/2020/07/27/CentOS7%E4%B8%8BMariaDB%E3%80%81JDK%E5%8F%8ARedis%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/"/>
-    <id>http://xukun.fun/2020/07/27/CentOS7%E4%B8%8BMariaDB%E3%80%81JDK%E5%8F%8ARedis%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/</id>
+    <link href="http://xukun.fit/2020/07/27/CentOS7%E4%B8%8BMariaDB%E3%80%81JDK%E5%8F%8ARedis%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/"/>
+    <id>http://xukun.fit/2020/07/27/CentOS7%E4%B8%8BMariaDB%E3%80%81JDK%E5%8F%8ARedis%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/</id>
     <published>2020-07-27T14:59:46.000Z</published>
     <updated>2020-07-27T15:44:05.531Z</updated>
     
@@ -63,21 +63,21 @@
     </summary>
     
     
-      <category term="工具安装" scheme="http://xukun.fun/categories/%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85/"/>
+      <category term="工具安装" scheme="http://xukun.fit/categories/%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85/"/>
     
     
-      <category term="MariaDB" scheme="http://xukun.fun/tags/MariaDB/"/>
+      <category term="MariaDB" scheme="http://xukun.fit/tags/MariaDB/"/>
     
-      <category term="JDK" scheme="http://xukun.fun/tags/JDK/"/>
+      <category term="JDK" scheme="http://xukun.fit/tags/JDK/"/>
     
-      <category term="Redis" scheme="http://xukun.fun/tags/Redis/"/>
+      <category term="Redis" scheme="http://xukun.fit/tags/Redis/"/>
     
   </entry>
   
   <entry>
     <title>Shiro修改角色权限清除缓存问题</title>
-    <link href="http://xukun.fun/2020/07/17/Shiro%E4%BF%AE%E6%94%B9%E8%A7%92%E8%89%B2%E6%9D%83%E9%99%90%E6%B8%85%E9%99%A4%E7%BC%93%E5%AD%98%E9%97%AE%E9%A2%98/"/>
-    <id>http://xukun.fun/2020/07/17/Shiro%E4%BF%AE%E6%94%B9%E8%A7%92%E8%89%B2%E6%9D%83%E9%99%90%E6%B8%85%E9%99%A4%E7%BC%93%E5%AD%98%E9%97%AE%E9%A2%98/</id>
+    <link href="http://xukun.fit/2020/07/17/Shiro%E4%BF%AE%E6%94%B9%E8%A7%92%E8%89%B2%E6%9D%83%E9%99%90%E6%B8%85%E9%99%A4%E7%BC%93%E5%AD%98%E9%97%AE%E9%A2%98/"/>
+    <id>http://xukun.fit/2020/07/17/Shiro%E4%BF%AE%E6%94%B9%E8%A7%92%E8%89%B2%E6%9D%83%E9%99%90%E6%B8%85%E9%99%A4%E7%BC%93%E5%AD%98%E9%97%AE%E9%A2%98/</id>
     <published>2020-07-17T05:25:40.000Z</published>
     <updated>2020-07-19T04:41:08.233Z</updated>
     
@@ -93,17 +93,17 @@
     </summary>
     
     
-      <category term="问题记录" scheme="http://xukun.fun/categories/%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/"/>
+      <category term="问题记录" scheme="http://xukun.fit/categories/%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/"/>
     
     
-      <category term="Shiro" scheme="http://xukun.fun/tags/Shiro/"/>
+      <category term="Shiro" scheme="http://xukun.fit/tags/Shiro/"/>
     
   </entry>
   
   <entry>
     <title>Mybatis-Plus分页多次查询获取相同数据问题</title>
-    <link href="http://xukun.fun/2020/03/17/Mybatis-Plus%E5%88%86%E9%A1%B5%E5%A4%9A%E6%AC%A1%E6%9F%A5%E8%AF%A2%E8%8E%B7%E5%8F%96%E7%9B%B8%E5%90%8C%E6%95%B0%E6%8D%AE%E9%97%AE%E9%A2%98/"/>
-    <id>http://xukun.fun/2020/03/17/Mybatis-Plus%E5%88%86%E9%A1%B5%E5%A4%9A%E6%AC%A1%E6%9F%A5%E8%AF%A2%E8%8E%B7%E5%8F%96%E7%9B%B8%E5%90%8C%E6%95%B0%E6%8D%AE%E9%97%AE%E9%A2%98/</id>
+    <link href="http://xukun.fit/2020/03/17/Mybatis-Plus%E5%88%86%E9%A1%B5%E5%A4%9A%E6%AC%A1%E6%9F%A5%E8%AF%A2%E8%8E%B7%E5%8F%96%E7%9B%B8%E5%90%8C%E6%95%B0%E6%8D%AE%E9%97%AE%E9%A2%98/"/>
+    <id>http://xukun.fit/2020/03/17/Mybatis-Plus%E5%88%86%E9%A1%B5%E5%A4%9A%E6%AC%A1%E6%9F%A5%E8%AF%A2%E8%8E%B7%E5%8F%96%E7%9B%B8%E5%90%8C%E6%95%B0%E6%8D%AE%E9%97%AE%E9%A2%98/</id>
     <published>2020-03-17T05:53:33.000Z</published>
     <updated>2020-03-17T06:23:38.997Z</updated>
     
@@ -119,10 +119,10 @@
     </summary>
     
     
-      <category term="问题记录" scheme="http://xukun.fun/categories/%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/"/>
+      <category term="问题记录" scheme="http://xukun.fit/categories/%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/"/>
     
     
-      <category term="MyBatis-Plus" scheme="http://xukun.fun/tags/MyBatis-Plus/"/>
+      <category term="MyBatis-Plus" scheme="http://xukun.fit/tags/MyBatis-Plus/"/>
     
   </entry>
   
